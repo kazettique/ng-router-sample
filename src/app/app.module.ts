@@ -1,6 +1,9 @@
+// Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
+// Component
 import { AppComponent } from './app.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
@@ -12,7 +15,12 @@ import { CrisisListComponent } from './crisis-list/crisis-list.component';
     CrisisListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      { path: 'crisis-list', component: CrisisListComponent },
+      { path: 'heroes-list', component: HeroesListComponent },
+      { path: '', redirectTo: '/heroes-list', pathMatch: 'full' },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
