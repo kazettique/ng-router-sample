@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeroesListComponent } from './heroes-list/heroes-list.component';
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesListComponent,
-    CrisisListComponent
+    CrisisListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,8 @@ import { CrisisListComponent } from './crisis-list/crisis-list.component';
       { path: 'crisis-list', component: CrisisListComponent },
       { path: 'heroes-list', component: HeroesListComponent },
       { path: '', redirectTo: '/heroes-list', pathMatch: 'full' },
+      // * "path: **" is how Angular identifies a wildcard route
+      { path: '**', component: PageNotFoundComponent },
     ]),
   ],
   providers: [],
